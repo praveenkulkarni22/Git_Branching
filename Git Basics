@@ -1,0 +1,142 @@
+git config --global user.name "Praveen Kulkarni"
+git config --global user.email "praveenkulkarni22@gmail.com"
+git config --global --list
+cat ~/.gitconfig
+
+
+Initialize a empty repository
+
+mkdir projects
+cd projects
+pwd
+/Users/praveen/projects
+git init git-demo
+Initialized empty Git repository in /Users/praveen/projects/git-demo/.git/
+(base) Praveens-MacBook-Pro:projects praveen$ ls -ltr
+drwxr-xr-x  3 praveen  staff  96 Feb 11 20:58 git-demo
+(base) Praveens-MacBook-Pro:projects praveen$ cd git-demo/
+
+OR
+
+cd projects
+mkdir website
+cd website
+git init
+Initialized empty Git repository in /Users/praveen/projects/website/.git/
+
+vi README.md
+save the file
+
+git status
+git add README.md
+git status
+git commit -m "First Commit"
+
+vi README.md
+save the file
+git status
+git commit -am "Modified content"
+git status
+
+Add multiple new files/modified files to staging area.
+git add . or git commit -a or git add -A 
+
+To remove file from a staging area
+git reset HEAD README.md
+
+To discard changes in working directory
+git checkout -- README.md
+
+checking the git log
+git log --oneline --graph --decorate --color
+
+
+Remove files from git
+git status
+git add .
+git status
+git commit -m "new file"
+git status
+git rm new_file.txt 
+git status
+git commit -m "removed file"
+git status
+
+
+Remove files outside of git
+rm new_file.txt
+git status
+git add .
+git status
+git commit -m "removed chk.txt"
+
+Moving files within git
+vi new_file.txt
+git add .
+git commit -m "added new file"
+git status
+mkdir new_folder
+git mv new_file.txt new_folder/
+git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	renamed:    new_file.txt -> new_folder/new_file.txt
+git commit -m "moved file"
+git status
+
+Moving files outside git
+vim new_file1.txt
+git add .
+git commit -m "2nd new file"
+git status
+mv new_file1.txt new_folder/
+git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	deleted:    new_file1.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	new_folder/new_file1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+git add .
+git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	renamed:    new_file1.txt -> new_folder/new_file1.txt
+
+
+git commit
+ls -ltr
+git status
+
+
+Notice the changes in git behaviour when files are moved using git and outside git
+
+Ignore Files from being commit
+create a .gitignore file and add all the files that needs to be ignored to it. One pattern of file per line.
+This file .gitignore should be committed to git
+
+application.log
+ls
+git status
+mate .gitignore
+git status
+ls -a
+git add .gitignore
+clear
+git status
+git commit -m "adding ignore file"
+
+
+
