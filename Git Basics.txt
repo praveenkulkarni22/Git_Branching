@@ -139,4 +139,56 @@ git status
 git commit -m "adding ignore file"
 
 
+Git Authentication using ssh key
+ssh-keygen -t rsa -C "praveenkulkarni22@gmail.com"
+ls -all
+vim id_rsa.pub (Copy the content of the key)
+go to github.com > settings > ssh and add the key
+ssh -T git@github.com
+ssh -T git@github.com
+The authenticity of host 'github.com (13.234.210.38)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,13.234.210.38' (RSA) to the list of known hosts.
+Hi praveenkulkarni22! You've successfully authenticated, but GitHub does not provide shell access.
 
+
+Git Remote and GitHub
+create a new repository in GitHub
+use SSH and copy the link
+(base) Praveens-MacBook-Pro:git-demo praveen$ git remote add origin git@github.com:praveenkulkarni22/git-demo.git
+(base) Praveens-MacBook-Pro:git-demo praveen$ git remote -v
+origin	git@github.com:praveenkulkarni22/git-demo.git (fetch)
+origin	git@github.com:praveenkulkarni22/git-demo.git (push)
+(base) Praveens-MacBook-Pro:git-demo praveen$ git push -u origin master
+Enumerating objects: 23, done.
+Counting objects: 100% (23/23), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (17/17), done.
+Writing objects: 100% (23/23), 2.16 KiB | 738.00 KiB/s, done.
+Total 23 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), done.
+To github.com:praveenkulkarni22/git-demo.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+cp ~/Documents/GitHub/Git/Git\ Basics.txt ./Git_Basics.txt
+ls -ltr
+git status
+git add Git_Basics.txt 
+git status
+git commit -am "Git Basics Details"
+git status
+git pull origin master
+git status
+git push origin master
+git status
+
+
+Update on MAC after version upgrade
+sudo xcode-select --install
+
+
+Git command to set some editor default for editing git settings
+git config --global core.editor "'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -n -w"
+git config --global -e
